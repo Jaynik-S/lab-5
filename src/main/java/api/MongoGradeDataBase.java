@@ -64,8 +64,7 @@ public class MongoGradeDataBase implements GradeDataBase {
                         .build();
             }
             else {
-                throw new RuntimeException("Grade could not be found for course: " + course
-                                           + " and username: " + username);
+                return null;
             }
         }
         catch (IOException | JSONException event) {

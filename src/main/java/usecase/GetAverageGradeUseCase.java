@@ -30,8 +30,11 @@ public final class GetAverageGradeUseCase {
         //              your team members. Hint: the getGrades method might be useful.
 
         for (String user: team.getMembers()) {
-            sum += gradeDataBase.getGrade(user, course).getGrade();
-            count++;
+            Grade grade = gradeDataBase.getGrade(user, course);
+            if  (grade != null) {
+                sum += grade.getGrade();
+                count++;
+            }
         }
 
         if (count == 0) {
